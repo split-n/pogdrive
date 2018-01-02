@@ -22,4 +22,6 @@
 
 /vendor/bundle
 
+/config/client_secrets.json
+
 .byebug_history
