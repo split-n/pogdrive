@@ -24,4 +24,5 @@
 
 .byebug_history
 
-/config/client_secrets.json
+# Ignore encrypted secrets key file.
+config/secrets.yml.key

@@ -2,13 +2,13 @@ require 'googleauth'
 require 'googleauth/stores/file_token_store'
 
 namespace :gdrive do
-  desc "Google Drive"
+  desc "Register Google Drive account"
   task auth: :environment do
     OOB_URI = 'urn:ietf:wg:oauth:2.0:oob'
     USER_ID = "dummy_the_user"
 
     scope = 'https://www.googleapis.com/auth/drive'
-    client_id = Google::Auth::ClientId.from_file(Rails.root + 'config/client_secrets.json')
+    client_id = Google::Auth::ClientId.new(Rails.application.secrets.google_client_id, Rails.application.secrets.google_client_secret)
 
     token_store = GoogleAuthDbTokenStore.new
     authorizer = Google::Auth::UserAuthorizer.new(client_id, scope, token_store)
@@ -26,6 +26,12 @@ namespace :gdrive do
     else
       puts "Already authorized."
     end
+  end
+
+  desc "Clear Google Drive account"
+  task auth_clear: :environment do
+    Googleauth.destroy_all
+    puts "Destroyed authorized tokens."
   end
 
 end

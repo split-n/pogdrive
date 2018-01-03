@@ -17,5 +17,7 @@ module Pogdrive
 
     config.autoload_paths << Rails.root.join("app/lib")
     config.eager_load_paths << Rails.root.join("app/lib")
+
+    config.read_encrypted_secrets = true
   end
 end
