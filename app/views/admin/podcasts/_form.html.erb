@@ -1,4 +1,6 @@
-<%= form_with(model: podcast, local: true) do |form| %>
+<%= form_with(model: podcast, 
+              url: podcast.new_record? ? admin_podcasts_path : admin_podcast_path, 
+              local: true) do |form| %>
   <% if podcast.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(podcast.errors.count, "error") %> prohibited this podcast from being saved:</h2>

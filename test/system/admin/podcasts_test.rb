@@ -1,6 +1,6 @@
 require "application_system_test_case"
 
-class PodcastsTest < ApplicationSystemTestCase
+class Admin::PodcastsTest < ApplicationSystemTestCase
   # test "visiting the index" do
   #   visit podcasts_url
   #

@@ -1,4 +1,4 @@
-class PodcastsController < ApplicationController
+class Admin::PodcastsController < ApplicationController
   before_action :set_podcast, only: [:show, :edit, :update, :destroy]
 
   # GET /podcasts
@@ -28,11 +28,9 @@ class PodcastsController < ApplicationController
 
     respond_to do |format|
       if @podcast.save
-        format.html { redirect_to @podcast, notice: 'Podcast was successfully created.' }
-        format.json { render :show, status: :created, location: @podcast }
+        format.html { redirect_to id: @podcast.id, action: 'show', notice: 'Podcast was successfully created.' }
       else
         format.html { render :new }
-        format.json { render json: @podcast.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -42,11 +40,9 @@ class PodcastsController < ApplicationController
   def update
     respond_to do |format|
       if @podcast.update(podcast_params)
-        format.html { redirect_to @podcast, notice: 'Podcast was successfully updated.' }
-        format.json { render :show, status: :ok, location: @podcast }
+        format.html { redirect_to id: @podcast.id, action: 'show', notice: 'Podcast was successfully updated.' }
       else
         format.html { render :edit }
-        format.json { render json: @podcast.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -56,7 +52,7 @@ class PodcastsController < ApplicationController
   def destroy
     @podcast.destroy
     respond_to do |format|
-      format.html { redirect_to podcasts_url, notice: 'Podcast was successfully destroyed.' }
+      format.html { redirect_to admin_podcasts_url, notice: 'Podcast was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

@@ -20,9 +20,9 @@
         <td><%= podcast.query %></td>
         <td><%= podcast.order_by %></td>
         <td><%= podcast.max_count %></td>
-        <td><%= link_to 'Show', podcast %></td>
-        <td><%= link_to 'Edit', edit_podcast_path(podcast) %></td>
-        <td><%= link_to 'Destroy', podcast, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', admin_podcast_path(podcast) %></td>
+        <td><%= link_to 'Edit', edit_admin_podcast_path(podcast) %></td>
+        <td><%= link_to 'Destroy', admin_podcast_path(podcast), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -30,4 +30,4 @@
 
 <br>
 
-<%= link_to 'New Podcast', new_podcast_path %>
+<%= link_to 'New Podcast', new_admin_podcast_path %>
