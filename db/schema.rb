@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180103122758) do
+ActiveRecord::Schema.define(version: 20180103143103) do
 
   create_table "googleauths", force: :cascade do |t|
     t.string "key", null: false
@@ -18,6 +18,15 @@ ActiveRecord::Schema.define(version: 20180103122758) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["key"], name: "index_googleauths_on_key", unique: true
+  end
+
+  create_table "podcasts", force: :cascade do |t|
+    t.string "title"
+    t.string "query"
+    t.string "order_by"
+    t.integer "max_count"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
