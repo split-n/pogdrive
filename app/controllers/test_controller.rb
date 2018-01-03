@@ -5,9 +5,17 @@ require 'google/apis/drive_v3'
 class TestController < ApplicationController
   def index
     drive = get_drive
-    @files  = drive.list_files(q: params[:q])
+    @files  = drive.list_files(q: params[:q], order_by: 'createdTime desc', page_size: 10,
+                               fields: 'files(createdTime, id, mime_type, name, size, webViewLink)')
 
-    console
+    respond_to do |format|
+      format.html {
+        render layout: true
+        console
+      }
+      format.rss { render :layout => false }
+    end
+
   end
 
   def item
@@ -18,7 +26,7 @@ class TestController < ApplicationController
     file_content = StringIO.new
     drive.get_file(id, download_dest:  file_content)
 
-    send_data(file_content.string.force_encoding('binary'), type: file.mime_type)
+    send_data(file_content.string.force_encoding('binary'), type: file.mime_type, filename: file.name)
   end
 
   private
