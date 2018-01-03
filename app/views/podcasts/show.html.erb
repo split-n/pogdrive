@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @podcast.title %>
+</p>
+
+<p>
+  <strong>Query:</strong>
+  <%= @podcast.query %>
+</p>
+
+<p>
+  <strong>Order by:</strong>
+  <%= @podcast.order_by %>
+</p>
+
+<p>
+  <strong>Max count:</strong>
+  <%= @podcast.max_count %>
+</p>
+
+<%= link_to 'Edit', edit_podcast_path(@podcast) %> |
+<%= link_to 'Back', podcasts_path %>
