@@ -28,7 +28,7 @@ class Admin::PodcastsController < ApplicationController
 
     respond_to do |format|
       if @podcast.save
-        format.html { redirect_to id: @podcast.id, action: 'show', notice: 'Podcast was successfully created.' }
+        format.html { redirect_to ({id: @podcast.id, action: 'show'}), notice: 'Podcast was successfully created.' }
       else
         format.html { render :new }
       end
@@ -40,7 +40,7 @@ class Admin::PodcastsController < ApplicationController
   def update
     respond_to do |format|
       if @podcast.update(podcast_params)
-        format.html { redirect_to id: @podcast.id, action: 'show', notice: 'Podcast was successfully updated.' }
+        format.html { redirect_to ({id: @podcast.id, action: 'show'}), notice: 'Podcast was successfully updated.' }
       else
         format.html { render :edit }
       end
