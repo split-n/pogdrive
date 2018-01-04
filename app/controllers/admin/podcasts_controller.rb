@@ -1,5 +1,6 @@
 class Admin::PodcastsController < ApplicationController
   before_action :set_podcast, only: [:show, :edit, :update, :destroy]
+  before_action :basic_auth
 
   # GET /podcasts
   # GET /podcasts.json
@@ -66,5 +67,11 @@ class Admin::PodcastsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def podcast_params
       params.require(:podcast).permit(:title, :query, :order_by, :max_count)
+    end
+
+    def basic_auth
+      authenticate_or_request_with_http_basic do |user, pass|
+        user == Rails.application.secrets.admin_user && pass == Rails.application.secrets.admin_pass
+      end
     end
 end
