@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  get 'podcasts/:id', to: 'podcasts#show'
+  resources :podcasts, only: [:show]
+  resources :episodes, only: [:show]
 
   namespace :admin do
     resources :podcasts

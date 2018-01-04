@@ -10,7 +10,5 @@ class PodcastsController < ApplicationController
       render plain: "Not Found", status: 404
       return
     end
-
-    @episodes = []
   end
 end

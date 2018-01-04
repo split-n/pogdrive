@@ -41,7 +41,14 @@ class GoogleDriveClient
     drive = get_drive
     drive.list_files(q: q, order_by: order_by, page_size: page_size,
                 fields: 'files(createdTime, id, mime_type, modifiedTime, name, size, webViewLink)')
+  end
 
+  # @param id [String]
+  # @return [String] binary data
+  def get_file_content(id)
+    buf = StringIO.new
+    get_drive.get_file(id, download_dest: buf)
+    buf.string.force_encoding('binary')
   end
 
   private
