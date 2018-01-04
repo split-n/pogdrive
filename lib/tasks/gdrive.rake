@@ -4,7 +4,7 @@ require 'googleauth/stores/file_token_store'
 namespace :gdrive do
   desc "Register Google Drive account"
   task auth: :environment do
-    client = GoogleDriveClient.new(Rails.application.secrets.google_client_id, Rails.application.secrets.google_client_secret)
+    client = GoogleDriveClient.new
     puts client.authorize { |auth_url|
       puts 'Open'
       puts auth_url
@@ -15,7 +15,7 @@ namespace :gdrive do
 
   desc "Clear Google Drive account"
   task auth_clear: :environment do
-    client = GoogleDriveClient.new(Rails.application.secrets.google_client_id, Rails.application.secrets.google_client_secret)
+    client = GoogleDriveClient.new
     puts client.destroy_auth
   end
 end
