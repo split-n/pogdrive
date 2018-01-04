@@ -20,5 +20,12 @@
   <%= @podcast.max_count %>
 </p>
 
+<%= link_to 'Podcast URL', podcast_path(@podcast, format: :rss, sk: Rails.application.secrets.podcast_secret_key) %> |
 <%= link_to 'Edit', edit_admin_podcast_path(@podcast) %> |
 <%= link_to 'Back', admin_podcasts_path %>
+
+<ul>
+  <% @podcast.episodes.get_ordered.each do |ep| %>
+    <li><%= link_to ep.title, ep.gd_web_view_link %></li>
+  <% end %>
+</ul>

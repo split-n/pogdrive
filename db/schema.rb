@@ -10,19 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180104043636) do
+ActiveRecord::Schema.define(version: 20180104130842) do
 
   create_table "episodes", force: :cascade do |t|
-    t.integer "podcast_id"
-    t.string "gd_name"
-    t.string "gd_id"
-    t.string "gd_web_view_link"
-    t.datetime "gd_created_time"
-    t.datetime "gd_modified_time"
-    t.string "gd_mime_type"
-    t.integer "gd_size"
+    t.integer "podcast_id", null: false
+    t.string "gd_name", null: false
+    t.string "gd_id", null: false
+    t.string "gd_web_view_link", null: false
+    t.datetime "gd_created_time", null: false
+    t.datetime "gd_modified_time", null: false
+    t.string "gd_mime_type", null: false
+    t.integer "gd_size", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "get_order", default: 0, null: false
+    t.index ["podcast_id", "gd_id"], name: "index_episodes_on_podcast_id_and_gd_id", unique: true
     t.index ["podcast_id"], name: "index_episodes_on_podcast_id"
   end
 
@@ -35,10 +37,10 @@ ActiveRecord::Schema.define(version: 20180104043636) do
   end
 
   create_table "podcasts", force: :cascade do |t|
-    t.string "title"
-    t.string "query"
-    t.string "order_by"
-    t.integer "max_count"
+    t.string "title", null: false
+    t.string "query", null: false
+    t.string "order_by", default: "createdTime desc", null: false
+    t.integer "max_count", default: 10, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
