@@ -6,5 +6,9 @@ xml.rss version: "2.0", :'xmlns:atom' => 'http://www.w3.org/2005/Atom',
     xml.description ""
     xml.link admin_podcast_url(@podcast)
     xml.tag! 'atom:link', href: request.original_url, rel:"self", type:"application/rss+xml"
+
+    @episodes.each do |ep|
+
+    end
   end
 end

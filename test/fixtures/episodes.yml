@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  podcast: one
+  gd_name: MyString
+  gd_id: MyString
+  gd_web_view_link: MyString
+  gd_created_time: 2018-01-04 13:36:36
+  gd_modified_time: 2018-01-04 13:36:36
+  gd_mime_type: MyString
+  gd_size: 1
+
+two:
+  podcast: two
+  gd_name: MyString
+  gd_id: MyString
+  gd_web_view_link: MyString
+  gd_created_time: 2018-01-04 13:36:36
+  gd_modified_time: 2018-01-04 13:36:36
+  gd_mime_type: MyString
+  gd_size: 1

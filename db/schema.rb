@@ -10,7 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180103143103) do
+ActiveRecord::Schema.define(version: 20180104043636) do
+
+  create_table "episodes", force: :cascade do |t|
+    t.integer "podcast_id"
+    t.string "gd_name"
+    t.string "gd_id"
+    t.string "gd_web_view_link"
+    t.datetime "gd_created_time"
+    t.datetime "gd_modified_time"
+    t.string "gd_mime_type"
+    t.integer "gd_size"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["podcast_id"], name: "index_episodes_on_podcast_id"
+  end
 
   create_table "googleauths", force: :cascade do |t|
     t.string "key", null: false
