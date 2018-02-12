@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 20180104130842) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "episodes", force: :cascade do |t|
     t.integer "podcast_id", null: false
     t.string "gd_name", null: false
@@ -45,4 +48,5 @@ ActiveRecord::Schema.define(version: 20180104130842) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "episodes", "podcasts"
 end
