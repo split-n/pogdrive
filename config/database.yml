@@ -24,5 +24,4 @@ test:
   database: pogdrive_test
 
 production:
-  <<: *default
-  database: pogdrive_production
+  url: <%= ENV['DATABASE_URL'] %>
