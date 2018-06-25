@@ -1,5 +1,5 @@
 class Admin::PodcastsController < ApplicationController
-  before_action :set_podcast, only: [:show, :edit, :update, :destroy]
+  before_action :set_podcast, only: [:show, :edit, :update, :destroy, :renew_episodes]
   before_action :basic_auth
 
   # GET /podcasts
@@ -55,6 +55,17 @@ class Admin::PodcastsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to admin_podcasts_url, notice: 'Podcast was successfully destroyed.' }
       format.json { head :no_content }
+    end
+  end
+
+  # POST /podcasts/1/renew_episodes
+  def renew_episodes
+    respond_to do |format|
+      if @podcast.renew_episodes
+        format.html { redirect_to ({id: @podcast.id, action: 'show'}), notice: 'Podcast items were successfully fetched.' }
+      else
+        format.html { render :show }
+      end
     end
   end
 

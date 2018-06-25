@@ -3,6 +3,10 @@ Rails.application.routes.draw do
   resources :episodes, only: [:show]
 
   namespace :admin do
-    resources :podcasts
+    resources :podcasts do
+      member do
+        post 'renew_episodes'
+      end
+    end
   end
 end
