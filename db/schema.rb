@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180104130842) do
+ActiveRecord::Schema.define(version: 2018_10_07_100112) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 20180104130842) do
     t.datetime "gd_created_time", null: false
     t.datetime "gd_modified_time", null: false
     t.string "gd_mime_type", null: false
-    t.integer "gd_size", null: false
+    t.bigint "gd_size", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "get_order", default: 0, null: false
