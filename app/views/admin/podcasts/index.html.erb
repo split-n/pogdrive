@@ -1,33 +1,33 @@
-<p id="notice"><%= notice %></p>
+<div class="container mt-3">
+  <% if notice %>
+  <p class="alert alert-success" role="alert"><%= notice %></p>
+  <% end %>
 
-<h1>Podcasts</h1>
+  <h1>Podcasts</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Query</th>
-      <th>Order by</th>
-      <th>Max count</th>
-      <th colspan="3"></th>
+  <table class="table">
+    <thead>
+    <tr class="d-flex">
+      <th class="col-5">Title</th>
+      <th class="col-5">Query</th>
+      <th class="col-2"></th>
     </tr>
-  </thead>
+    </thead>
 
-  <tbody>
+    <tbody>
     <% @podcasts.each do |podcast| %>
-      <tr>
-        <td><%= podcast.title %></td>
-        <td><%= podcast.query %></td>
-        <td><%= podcast.order_by %></td>
-        <td><%= podcast.max_count %></td>
-        <td><%= link_to 'Show', admin_podcast_path(podcast) %></td>
-        <td><%= link_to 'Edit', edit_admin_podcast_path(podcast) %></td>
-        <td><%= link_to 'Destroy', admin_podcast_path(podcast), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <tr class="d-flex">
+        <td class="col-5"><%= podcast.title %></td>
+        <td class="col-5"><%= podcast.query %></td>
+        <td class="col-2">
+          <%= link_to 'Show', admin_podcast_path(podcast) %> <%= link_to 'Edit', edit_admin_podcast_path(podcast) %> <%= link_to 'Destroy', admin_podcast_path(podcast), method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
       </tr>
     <% end %>
-  </tbody>
-</table>
+    </tbody>
+  </table>
 
-<br>
+  <br>
 
-<%= link_to 'New Podcast', new_admin_podcast_path %>
+  <%= link_to 'New Podcast', new_admin_podcast_path %>
+</div>
