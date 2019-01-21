@@ -1,5 +1,7 @@
-<h1>New Podcast</h1>
+<div class="container mt-3">
+  <h1>New Podcast</h1>
 
-<%= render 'form', podcast: @podcast %>
+  <%= render 'form', podcast: @podcast %>
 
-<%= link_to 'Back', admin_podcasts_path %>
+  <%= link_to 'Back', admin_podcasts_path, class: "btn btn-secondary mt-1" %>
+</div>

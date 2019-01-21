@@ -13,27 +13,35 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title, id: :podcast_title %>
+  <div class="form-group row">
+    <%= form.label :podcast, "Title", value: "title", class: "col-sm-2 col-form-label"%>
+    <div class="col-sm-10">
+      <%= form.text_field :title, id: :podcast_title, class: "form-control" %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :query %>
-    <%= form.text_field :query, id: :podcast_query %>
+  <div class="form-group row">
+    <%= form.label :podcast, "Query", value: "query", class: "col-sm-2 col-form-label"%>
+    <div class="col-sm-10">
+      <%= form.text_field :query, id: :podcast_query, class: "form-control" %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :order_by %>
-    <%= form.text_field :order_by, id: :podcast_order_by %>
+  <div class="form-group row">
+    <%= form.label :podcast, "Order By", value: "order_by", class: "col-sm-2 col-form-label"%>
+    <div class="col-sm-10">
+      <%= form.text_field :order_by, id: :podcast_order_by, class: "form-control" %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :max_count %>
-    <%= form.number_field :max_count, id: :podcast_max_count %>
+  <div class="form-group row">
+    <%= form.label :podcast, "Max count", value: "max_count", class: "col-sm-2 col-form-label"%>
+    <div class="col-sm-10">
+      <%= form.text_field :max_count, id: :podcast_max_count, class: "form-control" %>
+    </div>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: "btn-primary" %>
   </div>
 <% end %>

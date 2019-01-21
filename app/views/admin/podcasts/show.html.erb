@@ -1,32 +1,37 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @podcast.title %>
-</p>
-
-<p>
-  <strong>Query:</strong>
-  <%= @podcast.query %>
-</p>
-
-<p>
-  <strong>Order by:</strong>
-  <%= @podcast.order_by %>
-</p>
-
-<p>
-  <strong>Max count:</strong>
-  <%= @podcast.max_count %>
-</p>
-
-<%= link_to 'Podcast URL', podcast_path(@podcast, format: :rss, sk: Rails.application.secrets.podcast_secret_key) %> |
-<%= link_to 'Edit', edit_admin_podcast_path(@podcast) %> |
-<%= link_to 'Renew episodes', renew_episodes_admin_podcast_path(@podcast), method: :post %> |
-<%= link_to 'Back', admin_podcasts_path %>
-
-<ul>
-  <% @podcast.episodes.get_ordered.each do |ep| %>
-    <li><%= link_to ep.title, ep.gd_web_view_link %></li>
+<div class="container">
+  <% if notice %>
+    <p class="alert alert-success" role="alert"><%= notice %></p>
   <% end %>
-</ul>
+
+  <p>
+    <strong>Title:</strong>
+    <%= @podcast.title %>
+  </p>
+
+  <p>
+    <strong>Query:</strong>
+    <%= @podcast.query %>
+  </p>
+
+  <p>
+    <strong>Order by:</strong>
+    <%= @podcast.order_by %>
+  </p>
+
+  <p>
+    <strong>Max count:</strong>
+    <%= @podcast.max_count %>
+  </p>
+
+  <%= link_to 'Podcast URL', podcast_path(@podcast, format: :rss, sk: Rails.application.secrets.podcast_secret_key) %> |
+  <%= link_to 'Edit', edit_admin_podcast_path(@podcast) %> |
+  <%= link_to 'Renew episodes', renew_episodes_admin_podcast_path(@podcast), method: :post %> |
+  <%= link_to 'Back', admin_podcasts_path %>
+
+  <ul>
+    <% @podcast.episodes.get_ordered.each do |ep| %>
+      <li><%= link_to ep.title, ep.gd_web_view_link %></li>
+    <% end %>
+  </ul>
+
+</div>
