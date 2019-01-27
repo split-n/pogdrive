@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>Pogdrive</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,6 +10,9 @@
   </head>
 
   <body>
+    <nav class="navbar navbar-light bg-light">
+      <%= link_to 'Pogdrive admin', admin_podcasts_path, class: 'navbar-brand' %>
+    </nav>
     <%= yield %>
   </body>
 </html>

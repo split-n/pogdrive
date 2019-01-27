@@ -57,3 +57,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # Google API
 gem 'google-api-client', require: 'google/apis/drive_v3'
 gem 'googleauth', require: 'googleauth/token_store'
+
+# front
+gem 'bootstrap', '~> 4.1.3'
+gem 'jquery-rails'

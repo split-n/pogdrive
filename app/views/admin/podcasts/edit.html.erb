@@ -1,6 +1,7 @@
-<h1>Editing Podcast</h1>
+<div class="container mt-3">
+  <h2>Editing Podcast</h2>
 
-<%= render 'form', podcast: @podcast %>
+  <%= render 'form', podcast: @podcast %>
 
-<%= link_to 'Show', admin_podcast_path(@podcast) %> |
-<%= link_to 'Back', admin_podcasts_path %>
+  <%= link_to 'Back to info', admin_podcast_path(@podcast), class: 'btn btn-secondary mt-2' %>
+</div>
