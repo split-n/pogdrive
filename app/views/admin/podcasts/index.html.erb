@@ -17,10 +17,11 @@
     <tbody>
     <% @podcasts.each do |podcast| %>
       <tr class="d-flex">
-        <td class="col-5"><%= podcast.title %></td>
+        <td class="col-4"><%= podcast.title %></td>
         <td class="col-5"><%= podcast.query %></td>
-        <td class="col-2">
-          <%= link_to 'Show', admin_podcast_path(podcast) %> <%= link_to 'Edit', edit_admin_podcast_path(podcast) %> <%= link_to 'Destroy', admin_podcast_path(podcast), method: :delete, data: { confirm: 'Are you sure?' } %>
+        <td class="col-3">
+          <%= link_to 'Show', admin_podcast_path(podcast), class: 'btn btn-primary' %>
+          <%= link_to 'Destroy', admin_podcast_path(podcast), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'%>
         </td>
       </tr>
     <% end %>
@@ -29,5 +30,5 @@
 
   <br>
 
-  <%= link_to 'New Podcast', new_admin_podcast_path %>
+  <%= link_to 'New Podcast', new_admin_podcast_path, class:'btn btn-primary' %>
 </div>
