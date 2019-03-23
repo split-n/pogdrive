@@ -8,6 +8,11 @@ class Podcast < ApplicationRecord
     response.files
   end
 
+  def preview_drive_items
+    files = get_episode_files
+    files.map{|f| {name: f.name, id: f.id}}
+  end
+
   def renew_episodes
     ActiveRecord::Base.transaction do
       files = get_episode_files

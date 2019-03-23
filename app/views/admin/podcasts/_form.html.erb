@@ -13,6 +13,8 @@
     </div>
   <% end %>
 
+  <a href="https://developers.google.com/drive/api/v3/reference/files/list">Query document for Google Drive</a>
+
   <div class="form-group row">
     <%= form.label :podcast, "Title", value: "title", class: "col-sm-2 col-form-label"%>
     <div class="col-sm-10">
@@ -43,5 +45,31 @@
 
   <div class="actions">
     <%= form.submit class: "btn btn-primary" %>
+    <%= form.button "Query preview" ,class: "btn btn-primary" ,name: "preview", value: "1" %>
   </div>
+<% end %>
+
+<% if @preview_items %>
+<div class="row">
+  <h2 class="mt-5">Query Preview</h2>
+  <ul class="table">
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>name</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @preview_items.each do |file| %>
+          <tr>
+            <td><%= file[:id] %></td>
+            <td><%= file[:name] %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+  </ul>
+</div>
 <% end %>

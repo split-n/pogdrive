@@ -28,7 +28,10 @@ class Admin::PodcastsController < ApplicationController
     @podcast = Podcast.new(podcast_params)
 
     respond_to do |format|
-      if @podcast.save
+      if params[:preview] == '1'
+        prepare_preview
+        format.html { render :new }
+      elsif @podcast.save
         format.html { redirect_to ({id: @podcast.id, action: 'show'}), notice: 'Podcast was successfully created.' }
       else
         format.html { render :new }
@@ -40,7 +43,10 @@ class Admin::PodcastsController < ApplicationController
   # PATCH/PUT /podcasts/1.json
   def update
     respond_to do |format|
-      if @podcast.update(podcast_params)
+      if params[:preview] == '1'
+        prepare_preview
+        format.html { render :edit }
+      elsif @podcast.update(podcast_params)
         format.html { redirect_to ({id: @podcast.id, action: 'show'}), notice: 'Podcast was successfully updated.' }
       else
         format.html { render :edit }
@@ -84,5 +90,10 @@ class Admin::PodcastsController < ApplicationController
       authenticate_or_request_with_http_basic do |user, pass|
         user == Rails.application.secrets.admin_user && pass == Rails.application.secrets.admin_pass
       end
+    end
+
+    def prepare_preview
+      podcast = Podcast.new(podcast_params)
+      @preview_items = podcast.preview_drive_items
     end
 end
